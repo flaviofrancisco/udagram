@@ -1,2 +1,3 @@
 *.env
 *secrets*
+/deployment/docker/aws-config.json

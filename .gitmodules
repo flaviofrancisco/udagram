@@ -1,0 +1,16 @@
+[submodule "udagram-reverse-proxy"]
+	path = udagram-reverse-proxy
+	url = https://github.com/flaviofrancisco/udagram-reverse-proxy.git
+	branch = master
+[submodule "udagram-ui"]
+	path = udagram-ui
+	url = https://github.com/flaviofrancisco/udagram-ui.git
+	branch = master
+[submodule "udagram-api-users"]
+	path = udagram-api-users
+	url = https://github.com/flaviofrancisco/udagram-api-users.git
+	branch = master
+[submodule "udagram-api-feed"]
+	path = udagram-api-feed
+	url = https://github.com/flaviofrancisco/udagram-api-feed.git
+	branch = master

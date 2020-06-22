@@ -5,7 +5,9 @@ services:
     container_name: production_nginx
     depends_on: 
       - udagram-api-users
-      - udagram-api-feed   
+      - udagram-api-feed
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf       
     expose:
       - "8080"
     ports:
@@ -16,7 +18,7 @@ services:
   udagram-api-users:    
     container_name: udagram-api-users
     volumes: 
-      - ./aws-config.json:/usr/src/app/aws-config.json  
+      - ./aws-config.json:/usr/src/app/secret/aws-config.json  
     build: 
       context: ../../udagram-api-users
     expose:
@@ -30,7 +32,7 @@ services:
   udagram-api-feed:
     container_name: udagram-api-feed
     volumes:
-      - ./aws-config.json:/usr/src/app/aws-config.json
+      - ./aws-config.json:/usr/src/app/secret/aws-config.json
     build: 
       context: ../../udagram-api-feed
     expose:

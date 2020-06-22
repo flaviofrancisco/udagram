@@ -18,8 +18,11 @@ spec:
       - name: udagram-reverse-proxy
         image: ffrancisco/udagram-reverse-proxy
         resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
           limits:
-            memory: "8Mi"
-            cpu: "100m"
+            memory: "1024Mi"
+            cpu: "500m"     
         ports:
         - containerPort: 8080

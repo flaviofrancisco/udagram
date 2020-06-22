@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-ui
+  name: udagram-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-ui
+  template:
+    metadata:
+      labels:
+        app: udagram-ui
+    spec:
+      containers:
+      - name: udagram-ui
+        image: ffrancisco/udagram-ui
+        envFrom:
+        - configMapRef:
+            name: app-settings 
+        resources:
+          limits:
+            memory: "8Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8100

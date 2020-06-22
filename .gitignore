@@ -1,3 +1,5 @@
 *.env
 *secrets*
-/deployment/docker/aws-config.json
+*aws-config*
+/admin-user.serviceaccount.yaml
+/clusterrolebinding.yaml

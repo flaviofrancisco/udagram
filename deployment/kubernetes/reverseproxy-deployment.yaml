@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-reverse-proxy
+  name: udagram-reverse-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-reverse-proxy
+  template:
+    metadata:
+      labels:
+        app: udagram-reverse-proxy
+    spec:
+      containers:
+      - name: udagram-reverse-proxy
+        image: ffrancisco/udagram-reverse-proxy
+        resources:
+          limits:
+            memory: "8Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8080

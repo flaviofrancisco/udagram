@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: udagram-ui
+spec:
+  selector:
+    app: udagram-ui
+  ports:
+  - name: "8100"
+    port: 8100
+    targetPort: 8100
+ 

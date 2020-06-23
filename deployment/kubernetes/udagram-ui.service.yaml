@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: udagram-ui
 spec:
+  type: LoadBalancer
   selector:
     app: udagram-ui
   ports:

@@ -30,5 +30,39 @@ This command will clone the following projects:
 - [Udagram UI](https://github.com/flaviofrancisco/udagram-ui/tree/19887d2f9831aaf824748491c1cd3e6cadb970bc) (Front-end application developed with Ionic/ Angular);
 - [Udagram Api Users](https://github.com/flaviofrancisco/udagram-api-users/tree/bb7da86e82cb185c20825c315591a699d801e940) (Node.js Api)
 - [Udagram Api Feed](https://github.com/flaviofrancisco/udagram-api-feed/tree/7905cde8e7a54b2f77390d8119c25285e31c3917) (Node.js Api)
-- [Reverse Proxy](https://github.com/flaviofrancisco/udagram-reverse-proxy/tree/f0c93bbe92225bd594d0c9bf6f5ae562bbafe7d9) that will work a gateway for the api services;
-- [Deployment](https://github.com/flaviofrancisco/udagram/tree/master/deployment) - folder with the manifest files to deploy it against AWS EKS.
+- [Reverse Proxy](https://github.com/flaviofrancisco/udagram-reverse-proxy/tree/f0c93bbe92225bd594d0c9bf6f5ae562bbafe7d9) Docker files that will create an image that later will be use as service to be a gateway for the api services;
+- [Deployment](https://github.com/flaviofrancisco/udagram/tree/master/deployment) - folder with the manifest files to deploy it against AWS EKS and create the Docker images for each project (UI, APIs and Reverse Proxy).
+
+## Settings
+
+You will need to include some files like secrets; environment variables and nginx.conf that make part of the process to set up your environment and was not included in the project that I will describe in the next section.
+
+### Deployment Folder
+
+[This deployment folder](https://github.com/flaviofrancisco/udagram/tree/master/deployment) has two sub-folder as you can see:
+
+- docker and
+- kubernetes
+
+#### Docker Folder
+
+In this folder you will need to create tree files:
+
+- aws-config.json
+- nginx.conf and
+- service.env
+
+Don't forget to include those files in your .gitignore files for safty and use the following command to remove them from git:
+
+```
+git rm --cached aws-config.json
+git rm --cached service.env
+```
+The content of each file will be shown next.
+
+*aws-config.json*
+
+```
+{ "accessKeyId": "Your AWS Access key ID", "secretAccessKey": "Your AWS secret key generated when you create your AWS Account", "region": "Your preferable AWS region" }
+```
+

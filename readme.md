@@ -37,6 +37,8 @@ This command will clone the following projects:
 
 ## Settings
 
+**IMPORTANT**
+
 **Before you start setting up your environment there is a small tweak that I left and need to be re-factored. The files in the folder: udagram-ui\src\environments must be updated accordingly with your environment and set up: environment.ts and environment.prod.ts **
 
 ```
@@ -47,9 +49,10 @@ export const environment = {
 };
 ```
 
-The **apiHost: ** property must be localhost:8080 to make it work locally or with your AWS Service where is located your NGINX reverse proxy.  
+The apiHost: property must be localhost:8080 to make it work locally or with your AWS Service where is located your NGINX reverse proxy.  
 
 You will need to include some files like secrets; environment variables and nginx.conf that make part of the process to set up your environment and was not included in the project that I will describe in the next section.
+
 
 ### Deployment Folder
 

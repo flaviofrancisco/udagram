@@ -39,7 +39,7 @@ This command will clone the following projects:
 
 **IMPORTANT**
 
-**Before you start setting up your environment there is a small tweak that I left and need to be re-factored. The files in the folder: udagram-ui\src\environments must be updated accordingly with your environment and set up: environment.ts and environment.prod.ts **
+Before you start setting up your environment there is a small tweak that I left and need to be re-factored. The files in the folder: udagram-ui\src\environments must be updated accordingly with your environment and set up: environment.ts and environment.prod.ts.
 
 ```
 export const environment = {

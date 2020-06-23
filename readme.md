@@ -2,6 +2,8 @@
 
 This project make part of the Udacity's program: Cloud Developer Nanodegree Program. Here I will demonstrate that I have learned how to deploy microservices on the Amazon Web Service (AWS) - Elastic Kubernetes Service (EKS).
 
+I am assuming that you already has an AWS account with: EKS; RDS (Postgres) and S3 Bucket; a DockerHub account and TravisCI account set up.
+
 # Project Settings
 
 ## Prerequisites
@@ -16,7 +18,7 @@ You need to have the following applications installed in your local environment:
 
 Furthermore, you will need:
 
-- Amazon Web Services (AWS) account and
+- Amazon Web Services (AWS) account (with EKS; S3 and RDS set up already) and
 - DockerHub account.
 
 ## Cloning this project
@@ -80,7 +82,7 @@ URL=http://localhost:8100
 JWT_SECRET=Your JWT Secret
 ```
 
-*nginx.conf"*
+*nginx.conf*
 
 ```
 worker_processes 1;
@@ -118,3 +120,11 @@ http {
     }
 }
 ```
+
+Once you have the files properly set up you can run the following command:
+
+```
+$ docker-compose up -d --build
+```
+
+This will create the Docker images locally and create the container locally in your environment.

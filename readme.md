@@ -66,3 +66,55 @@ The content of each file will be shown next.
 { "accessKeyId": "Your AWS Access key ID", "secretAccessKey": "Your AWS secret key generated when you create your AWS Account", "region": "Your preferable AWS region" }
 ```
 
+*service.env*
+
+```
+POSTGRES_USERNAME=Your Database User Name
+POSTGRES_PASSWORD=Your Database Password
+POSTGRES_DB=Your Database Name
+POSTGRES_HOST=Your AWS RDS database URL
+AWS_REGION=Your preferable AWS region
+AWS_PROFILE=Your Profile
+AWS_BUCKET=Your S3 Bucket Name
+URL=http://localhost:8100
+JWT_SECRET=Your JWT Secret
+```
+
+*nginx.conf"*
+
+```
+worker_processes 1;
+  
+events { worker_connections 1024; }
+error_log /dev/stdout debug;
+http {
+    sendfile on;
+    upstream user {
+        server udagram-api-users:8080;
+    }
+    upstream feed {
+        server udagram-api-feed:8080;
+    }
+    upstream ui {
+        server udagram-ui:8100;
+    }    
+    
+    proxy_set_header   Host $host;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Host $server_name;
+    
+    server {
+        listen 8080;
+        location / {
+          proxy_pass         http://ui;
+        }
+        location /api/v0/feed {         
+            proxy_pass         http://feed;
+        }
+        location /api/v0/users {
+            proxy_pass         http://user;
+        }            
+    }
+}
+```

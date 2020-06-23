@@ -128,3 +128,39 @@ $ docker-compose up -d --build
 ```
 
 This will create the Docker images locally and create the container locally in your environment.
+
+#### Kubernetes Folder
+
+As you can see there is a config-files folder. In this config folder you need to include two files:
+
+- aws-config.json and
+- service.env
+
+Don't forget to include those files in your .gitignore files for safty and use the following command to remove them from git:
+
+```
+git rm --cached aws-config.json
+git rm --cached service.env
+```
+The content of each file will be shown next.
+
+*aws-config.json*
+
+```
+{ "accessKeyId": "Your AWS Access key ID", "secretAccessKey": "Your AWS secret key generated when you create your AWS Account", "region": "Your preferable AWS region" }
+```
+
+*service.env*
+
+```
+POSTGRES_USERNAME=Your Database User Name
+POSTGRES_PASSWORD=Your Database Password
+POSTGRES_DB=Your Database Name
+POSTGRES_HOST=Your AWS RDS database URL
+AWS_REGION=Your preferable AWS region
+AWS_PROFILE=Your Profile
+AWS_BUCKET=Your S3 Bucket Name
+URL=http://localhost:8100
+JWT_SECRET=Your JWT Secret
+```
+Once you have your file in place you can create/ apply the manifest file to deploy it against your Kubernetes Cluster.

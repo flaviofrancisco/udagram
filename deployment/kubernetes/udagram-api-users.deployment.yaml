@@ -5,7 +5,7 @@ metadata:
     app: udagram-api-users
   name: udagram-api-users
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-api-users
